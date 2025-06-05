@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 const accent = "#0070f3"; // Next.js blue
@@ -88,9 +89,11 @@ export default function Home() {
             />
           </svg>
         </div>
-        <img
+        <Image
           src={profile.avatar}
           alt="avatar"
+          width={128}
+          height={128}
           className="w-32 h-32 rounded-full mb-8 border-4 border-neutral-200 dark:border-neutral-800 object-cover shadow-lg"
         />
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight text-center leading-tight">
@@ -108,7 +111,7 @@ export default function Home() {
       <Section title="About">
         <div id="about">
           <p className="text-neutral-700 dark:text-neutral-300 text-xl leading-relaxed">
-            Hi! I'm {profile.name}. I love building web apps that are fast,
+            Hi! I am {profile.name}. I love building web apps that are fast,
             accessible, and user-friendly. I enjoy learning new technologies and
             collaborating with others to create impactful products.
           </p>
