@@ -5,7 +5,7 @@ const accent = "#0070f3"; // Next.js blue
 
 // Mocking data
 const profile = {
-  name: "Piyawong Mahattanasawat",
+  name: "Piyawong Mahattanasawat test",
   title: "Full Stack Developer",
   description:
     "Passionate about building scalable web applications and delightful user experiences.",
