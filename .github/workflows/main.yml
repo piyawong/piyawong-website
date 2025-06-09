@@ -39,6 +39,9 @@ jobs:
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
       - name: Update ECS service
+        env:
+          ECS_CLUSTER: arn:aws:ecs:ap-southeast-1:040802732528:cluster/piyawong-cluster
+          ECS_SERVICE: arn:aws:ecs:ap-southeast-1:040802732528:service/piyawong-cluster/piyawong-website-service-sajpb1ll
         run: |
           aws ecs update-service --cluster $ECS_CLUSTER \
                                 --service $ECS_SERVICE \
