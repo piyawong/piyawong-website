@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-southeast-1 # เปลี่ยนเป็น region ที่คุณใช้
-  ECR_REPOSITORY: piyawong/piyawong-website # เปลี่ยนเป็นชื่อ repository ของคุณ
+  ECR_REPOSITORY: piyawong/piyawong-web # เปลี่ยนเป็นชื่อ repository ของคุณ
 
 jobs:
   build:
@@ -33,9 +33,13 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Build a docker container and push it to ECR
-
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           # Also tag as latest
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+      - name: Update ECS service
+        run: |
+          aws ecs update-service --cluster $ECS_CLUSTER \
+                                --service $ECS_SERVICE \
+                                --force-new-deployment
