@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-southeast-1 # เปลี่ยนเป็น region ที่คุณใช้
-  ECR_REPOSITORY: piyawong/piyawong-web # เปลี่ยนเป็นชื่อ repository ของคุณ
+  ECR_REPOSITORY: piyawong/piyawong-website # เปลี่ยนเป็นชื่อ repository ของคุณ
 
 jobs:
   build:
