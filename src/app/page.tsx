@@ -1,206 +1,224 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
-import type { ReactNode } from "react";
 
-const accent = "#0070f3"; // Next.js blue
-
-// Mocking data
-const profile = {
-  name: "Piyawong Mahattanasawat test2",
-  title: "Full Stack Developer",
-  description:
-    "Passionate about building scalable web applications and delightful user experiences.",
-  avatar: "/logo-small.png", // คุณสามารถเปลี่ยน path หรือเพิ่มไฟล์จริงภายหลัง
-  contact: {
-    email: "piyawong@example.com",
-    github: "https://github.com/piyawong",
-    linkedin: "https://linkedin.com/in/piyawong",
+const featuredProjects = [
+  {
+    id: 1,
+    title: "E-Commerce Platform",
+    description:
+      "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
+    image: "/placeholder.svg?height=200&width=300",
+    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
   },
-  skills: [
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Tailwind CSS",
-    "PostgreSQL",
-    "AWS",
-  ],
-  projects: [
-    {
-      name: "Personal Portfolio",
-      description:
-        "A minimal portfolio website built with Next.js 15 and Tailwind CSS.",
-      link: "#",
-    },
-    {
-      name: "E-commerce Platform",
-      description: "A scalable e-commerce platform with modern stack.",
-      link: "#",
-    },
-  ],
-};
+  {
+    id: 2,
+    title: "Task Management App",
+    description: "Collaborative project management tool with real-time updates",
+    image: "/placeholder.svg?height=200&width=300",
+    tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind"],
+  },
+  {
+    id: 3,
+    title: "AI Chat Assistant",
+    description:
+      "Intelligent chatbot with natural language processing capabilities",
+    image: "/placeholder.svg?height=200&width=300",
+    tech: ["Python", "OpenAI", "FastAPI", "React"],
+  },
+  {
+    id: 4,
+    title: "Analytics Dashboard",
+    description:
+      "Real-time data visualization and business intelligence platform",
+    image: "/placeholder.svg?height=200&width=300",
+    tech: ["Vue.js", "D3.js", "Express", "Redis"],
+  },
+];
 
-function Section({ title, children }: { title: string; children: ReactNode }) {
+export default function HomePage() {
   return (
-    <section className="w-full max-w-3xl mx-auto mb-24 px-4">
-      <h2 className="text-4xl font-extrabold mb-10 text-neutral-900 dark:text-neutral-100 tracking-tight">
-        {title}
-      </h2>
-      {children}
-    </section>
-  );
-}
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="section-padding py-20 lg:py-32">
+        <div className="container-max">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+                Hi, I'm{" "}
+                <span className="gradient-text">Piyawong Mahattanasawat</span>
+              </h1>
+              <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                Full-Stack Developer with 5 years of experience building modern,
+                scalable web applications that solve real-world problems.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Link href="/projects" className="btn-primary">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                  View My Work
+                </Link>
+                <Link href="/contact" className="btn-secondary">
+                  Get In Touch
+                </Link>
+              </div>
+              <div className="flex space-x-4">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
 
-export default function Home() {
-  return (
-    <div className="relative min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex flex-col items-center font-sans overflow-x-hidden">
-      {/* Animated background */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-[-120px] -translate-x-1/2 w-[800px] h-[500px] rounded-full bg-blue-400/20 blur-3xl animate-bg-move" />
-        <div className="absolute right-[-200px] bottom-[-200px] w-[400px] h-[400px] rounded-full bg-blue-200/30 blur-2xl animate-bg-move2" />
-      </div>
-      {/* Hero */}
-      <div
-        className="flex flex-col items-center mb-28 mt-16 px-4 w-full"
-        id="hero"
-      >
-        <div className="pointer-events-none fixed inset-0 -z-20 w-full h-full">
-          <svg width="100%" height="100%" className="w-full h-full">
-            <defs>
-              <pattern
-                id="grid"
-                width="60"
-                height="60"
-                patternUnits="userSpaceOnUse"
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center"
+            >
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 p-4">
+                    <Image
+                      src="/placeholder.svg?height=300&width=300"
+                      alt="Piyawong Mahattanasawat"
+                      width={300}
+                      height={300}
+                      className="w-full h-full rounded-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section className="section-padding py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container-max">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Here are some of my recent projects that showcase my skills and
+              passion for creating innovative solutions.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="card card-hover h-full">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      width={300}
+                      height={200}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span key={tech} className="tech-tag">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Link href="/projects" className="btn-primary">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
                 <path
-                  d="M 60 0 L 0 0 0 60"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                  opacity="0.08"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
-              </pattern>
-            </defs>
-            <rect
-              width="100%"
-              height="100%"
-              fill="url(#grid)"
-              className="text-black dark:text-white animate-grid-move"
-            />
-          </svg>
+              </svg>
+              View All Projects
+            </Link>
+          </motion.div>
         </div>
-        <Image
-          src={profile.avatar}
-          alt="avatar"
-          width={128}
-          height={128}
-          className="w-32 h-32 rounded-full mb-8 border-4 border-neutral-200 dark:border-neutral-800 object-cover shadow-lg"
-        />
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 tracking-tight text-center leading-tight">
-          {profile.name}
-        </h1>
-        <p className="text-2xl sm:text-3xl text-neutral-600 dark:text-neutral-300 mb-4 font-semibold text-center">
-          {profile.title}
-        </p>
-        <p className="text-lg sm:text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl text-center">
-          {profile.description}
-        </p>
-      </div>
-
-      {/* About */}
-      <Section title="About">
-        <div id="about">
-          <p className="text-neutral-700 dark:text-neutral-300 text-xl leading-relaxed">
-            Hi! I am {profile.name}. I love building web apps that are fast,
-            accessible, and user-friendly. I enjoy learning new technologies and
-            collaborating with others to create impactful products.
-          </p>
-        </div>
-      </Section>
-
-      {/* Skills */}
-      <Section title="Skills">
-        <div id="skills">
-          <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {profile.skills.map((skill) => (
-              <li
-                key={skill}
-                className="bg-neutral-100 dark:bg-neutral-800 px-5 py-2 rounded-lg text-lg border border-neutral-200 dark:border-neutral-700 font-semibold shadow-sm text-center"
-              >
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      {/* Projects */}
-      <Section title="Projects">
-        <div id="projects">
-          <ul className="grid sm:grid-cols-2 gap-8">
-            {profile.projects.map((project) => (
-              <li
-                key={project.name}
-                className="border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 bg-white dark:bg-neutral-950 shadow-md transition hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-400 group flex flex-col"
-              >
-                <a
-                  href={project.link}
-                  className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-2 transition-colors"
-                  style={{ color: accent }}
-                >
-                  {project.name}
-                </a>
-                <p className="text-neutral-500 dark:text-neutral-400 text-base mt-1 flex-1">
-                  {project.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
-
-      {/* Contact */}
-      <Section title="Contact">
-        <div id="contact">
-          <ul className="flex flex-col gap-4 text-xl">
-            <li>
-              <span className="font-bold">Email:</span>{" "}
-              <a
-                href={`mailto:${profile.contact.email}`}
-                className="hover:underline text-blue-600 dark:text-blue-400 font-semibold"
-              >
-                {profile.contact.email}
-              </a>
-            </li>
-            <li>
-              <span className="font-bold">GitHub:</span>{" "}
-              <a
-                href={profile.contact.github}
-                className="hover:underline text-blue-600 dark:text-blue-400 font-semibold"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {profile.contact.github}
-              </a>
-            </li>
-            <li>
-              <span className="font-bold">LinkedIn:</span>{" "}
-              <a
-                href={profile.contact.linkedin}
-                className="hover:underline text-blue-600 dark:text-blue-400 font-semibold"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {profile.contact.linkedin}
-              </a>
-            </li>
-          </ul>
-        </div>
-      </Section>
-
-      <footer className="w-full max-w-3xl mx-auto text-center text-neutral-400 text-base py-12 border-t border-neutral-100 dark:border-neutral-800 mt-16">
-        &copy; {new Date().getFullYear()} {profile.name}
-      </footer>
+      </section>
     </div>
   );
 }
