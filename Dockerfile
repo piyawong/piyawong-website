@@ -12,6 +12,10 @@ RUN yarn install
 FROM node:20-slim AS builder
 WORKDIR /app
 
+# Accept build argument for SENDGRID_API_KEY
+ARG SENDGRID_API_KEY
+ENV SENDGRID_API_KEY=$SENDGRID_API_KEY
+
 # Copy dependencies from deps stage
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -24,6 +28,8 @@ FROM node:20-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+
+
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
