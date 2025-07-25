@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Piyawong - Full Stack Developer",
   description:
-    "Personal portfolio of Piyawong Mahattanasawat, a passionate full-stack developer with 5 years of experience building modern web applications.",
-  generator: "v0.dev",
+    "Full-Stack Developer passionate about building modern, scalable web applications and agentic AI solutions that solve real-world problems.",
+  // generator: "v0.dev",
 };
 
 export default function RootLayout({

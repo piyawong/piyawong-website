@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,33 +11,59 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState("")
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitMessage("Message sent successfully! I'll get back to you soon.")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setIsSubmitting(false)
-    }, 1000)
-  }
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage(
+          "Message sent successfully! I'll get back to you soon."
+        );
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setSubmitMessage("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitMessage("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactInfo = [
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -47,12 +73,17 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Email",
-      content: "alex.johnson@email.com",
-      link: "mailto:alex.johnson@email.com",
+      content: "piyawongmahat@gmail.com",
+      link: "mailto:piyawongmahat@gmail.com",
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -62,26 +93,36 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      content: "+66 88 932 5235",
+      link: "tel:+66889325235",
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
             d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
           />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
         </svg>
       ),
       title: "Location",
-      content: "San Francisco, CA",
+      content: "Bangkok, Thailand",
       link: null,
     },
-  ]
+  ];
 
   const socialLinks = [
     {
@@ -91,7 +132,7 @@ export default function ContactPage() {
         </svg>
       ),
       name: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/piyawong",
       color: "hover:text-gray-900 dark:hover:text-white",
     },
     {
@@ -101,20 +142,10 @@ export default function ContactPage() {
         </svg>
       ),
       name: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://linkedin.com/in/piyawong-mahattanasawat-2b63161b5",
       color: "hover:text-blue-600",
     },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-        </svg>
-      ),
-      name: "Twitter",
-      url: "https://twitter.com",
-      color: "hover:text-blue-400",
-    },
-  ]
+  ];
 
   return (
     <div className="pt-16">
@@ -127,10 +158,13 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Get In Touch</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              Get In Touch
+            </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              I'm always interested in new opportunities and exciting projects. Whether you have a question or just want
-              to say hi, feel free to reach out!
+              I'm always interested in new opportunities and exciting projects.
+              Whether you have a question or just want to say hi, feel free to
+              reach out!
             </p>
           </motion.div>
         </div>
@@ -219,10 +253,25 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button type="submit" disabled={isSubmitting} className="btn-primary w-full justify-center">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full justify-center"
+                  >
                     {isSubmitting ? (
-                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <svg
+                        className="animate-spin w-5 h-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
                         <path
                           className="opacity-75"
                           fill="currentColor"
@@ -230,7 +279,12 @@ export default function ContactPage() {
                         />
                       </svg>
                     ) : (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -256,7 +310,8 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-8">
-                  Feel free to reach out through any of these channels. I typically respond within 24 hours.
+                  Feel free to reach out through any of these channels. I
+                  typically respond within 24 hours.
                 </p>
 
                 <div className="space-y-6">
@@ -269,9 +324,13 @@ export default function ContactPage() {
                       viewport={{ once: true }}
                       className="flex items-center space-x-4"
                     >
-                      <div className="flex-shrink-0 text-blue-600">{info.icon}</div>
+                      <div className="flex-shrink-0 text-blue-600">
+                        {info.icon}
+                      </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white">{info.title}</h3>
+                        <h3 className="font-semibold text-gray-900 dark:text-white">
+                          {info.title}
+                        </h3>
                         {info.link ? (
                           <a
                             href={info.link}
@@ -280,7 +339,9 @@ export default function ContactPage() {
                             {info.content}
                           </a>
                         ) : (
-                          <p className="text-gray-600 dark:text-gray-300">{info.content}</p>
+                          <p className="text-gray-600 dark:text-gray-300">
+                            {info.content}
+                          </p>
                         )}
                       </div>
                     </motion.div>
@@ -313,10 +374,13 @@ export default function ContactPage() {
 
               {/* Additional Info */}
               <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-2 text-blue-900 dark:text-blue-100">Let's work together!</h3>
+                <h3 className="text-lg font-semibold mb-2 text-blue-900 dark:text-blue-100">
+                  Let's work together!
+                </h3>
                 <p className="text-blue-800 dark:text-blue-200">
-                  I'm currently available for freelance projects and full-time opportunities. Let's discuss how we can
-                  bring your ideas to life.
+                  I'm currently available for freelance projects and full-time
+                  opportunities. Let's discuss how we can bring your ideas to
+                  life.
                 </p>
               </div>
             </motion.div>
@@ -324,5 +388,5 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

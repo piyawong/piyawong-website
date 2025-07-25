@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "./theme-provider";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

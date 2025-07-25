@@ -40,52 +40,56 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Senior Full Stack Developer",
-    company: "TechCorp Solutions",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
-    description:
-      "Lead development of enterprise web applications serving 100K+ users. Architected microservices infrastructure and mentored junior developers.",
-    achievements: [
-      "Reduced application load time by 40% through optimization",
-      "Led team of 5 developers on major product redesign",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-    ],
-  },
-  {
-    title: "Full Stack Developer",
-    company: "StartupXYZ",
-    location: "Austin, TX",
-    period: "2020 - 2022",
-    description:
-      "Developed and maintained multiple client projects using React, Node.js, and cloud technologies. Collaborated with design and product teams.",
-    achievements: [
-      "Built 15+ responsive web applications from scratch",
-      "Integrated third-party APIs and payment systems",
-      "Improved code quality through testing and code reviews",
-    ],
-  },
-  {
-    title: "Junior Developer",
-    company: "WebDev Agency",
+    title: "Software Engineer (Django)",
+    company: "Cloudtronics",
     location: "Remote",
-    period: "2019 - 2020",
+    period: "Jan 2023 - Present (2 years 6 months)",
     description:
-      "Started career building websites and web applications for small to medium businesses. Gained experience in full-stack development.",
+      "Led backend development using Django, designing and maintaining robust APIs, authentication systems, and database schemas for various web applications.",
     achievements: [
-      "Delivered 20+ client projects on time and budget",
-      "Learned modern web development best practices",
-      "Contributed to open-source projects",
+      "Built and optimized CI/CD pipelines to automate testing, deployment, and environment provisioning, ensuring fast and reliable delivery across projects.",
+      "Occasionally contributed to front-end development (React, Next.js), ensuring full-stack alignment and seamless integration.",
+      "Designed and implemented real-time features using WebSocket and async architecture for instant updates (e.g., chat systems, live dashboards).",
+      "Worked closely with cross-functional teams to define system architecture, ensure scalability, and improve overall developer workflow.",
+    ],
+  },
+  {
+    title: "Software Developer (Electron + Next.js)",
+    company: "Snocko-tech",
+    location: "Remote",
+    period: "Jan 2023 - Jan 2025 (2 years 1 month)",
+    description:
+      "Developed a cross-platform desktop chat application using Next.js and Electron, focusing on seamless performance, real-time communication, and intuitive user experience.",
+    achievements: [
+      "Implemented core features including multi-room messaging, real-time updates, and local data persistence.",
+      "Designed and built a complete CI/CD pipeline to automate build, test, and deployment for macOS and Windows.",
+      "Integrated auto-update functionality using Electron’s update system for smooth delivery of new versions.",
+      "Handled code signing and certificate management for Windows (SignTool) and macOS (Apple Developer ID), ensuring security and compliance.",
+      "Collaborated across teams to ensure development best practices, consistent versioning, and secure release management.",
+    ],
+  },
+  {
+    title: "Junior Software Developer (Internship – React.js)",
+    company: "Customix.co",
+    location: "Bangkok, Thailand",
+    period: "Oct 2021 - Mar 2022 (6 months)",
+    description:
+      "Contributed to the development of a WYSIWYG website builder tailored for client use, enabling non-technical users to create and customize web pages.",
+    achievements: [
+      "Focused on front-end development using React.js, building dynamic components and enhancing user interaction within the page editor.",
+      "Collaborated with senior developers to implement drag-and-drop features, real-time previews, and reusable UI components.",
+      "Gained experience in component-based architecture, responsive design, and modern front-end development workflows.",
     ],
   },
 ];
 
 const education = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of California, Berkeley",
-    year: "2019",
-    details: "Graduated Magna Cum Laude, GPA: 3.8/4.0",
+    degree: "Bachelor of Computer Engineering",
+    institution: "Kasetsart University, Thailand",
+    year: "2022",
+    details:
+      "Graduated with a Bachelor of Computer Engineering degree from Kasetsart University, Thailand. GPA: 3.03",
   },
 ];
 
@@ -103,10 +107,19 @@ export default function AboutPage() {
           >
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">About Me</h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              I'm a passionate full-stack developer with over 5 years of
-              experience creating digital solutions that make a difference. I
-              love turning complex problems into simple, beautiful, and
-              intuitive designs.
+              I’m a passionate and driven software engineer with a strong love
+              for learning and problem-solving. With experience across
+              full-stack development—ranging from backend systems and CI/CD
+              pipelines to desktop and web applications—I bring adaptability,
+              perseverance, and a solution-oriented mindset to every project I
+              work on.
+              <br />
+              <br />I am currently seeking new opportunities in Australia as I
+              transition to living there permanently. I strongly believe in my
+              ability to learn anything required to deliver high-quality results
+              and thrive in fast-paced environments. My strengths lie in
+              analytical thinking, consistent improvement, and the determination
+              to overcome challenges, no matter how complex.
             </p>
           </motion.div>
         </div>

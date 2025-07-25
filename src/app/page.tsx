@@ -55,8 +55,9 @@ export default function HomePage() {
                 <span className="gradient-text">Piyawong Mahattanasawat</span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-                Full-Stack Developer with 5 years of experience building modern,
-                scalable web applications that solve real-world problems.
+                Full-Stack Developer passionate about building modern, scalable
+                web applications and agentic AI solutions that solve real-world
+                problems.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/projects" className="btn-primary">
@@ -81,7 +82,7 @@ export default function HomePage() {
               </div>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/piyawong"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -95,7 +96,7 @@ export default function HomePage() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="hhttps://th.linkedin.com/in/piyawong-mahattanasawat-2b63161b5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -121,7 +122,7 @@ export default function HomePage() {
                 <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 p-4">
                     <Image
-                      src="/placeholder.svg?height=300&width=300"
+                      src="/profile.png?height=300&width=300"
                       alt="Piyawong Mahattanasawat"
                       width={300}
                       height={300}
