@@ -3,40 +3,41 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import projects from "@/data/projects.json";
 
-const featuredProjects = [
-  {
-    id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-    image: "/placeholder.svg?height=200&width=300",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-  },
-  {
-    id: 2,
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates",
-    image: "/placeholder.svg?height=200&width=300",
-    tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind"],
-  },
-  {
-    id: 3,
-    title: "AI Chat Assistant",
-    description:
-      "Intelligent chatbot with natural language processing capabilities",
-    image: "/placeholder.svg?height=200&width=300",
-    tech: ["Python", "OpenAI", "FastAPI", "React"],
-  },
-  {
-    id: 4,
-    title: "Analytics Dashboard",
-    description:
-      "Real-time data visualization and business intelligence platform",
-    image: "/placeholder.svg?height=200&width=300",
-    tech: ["Vue.js", "D3.js", "Express", "Redis"],
-  },
-];
+// const featuredProjects = [
+//   {
+//     id: 1,
+//     title: "E-Commerce Platform",
+//     description:
+//       "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
+//     image: "/placeholder.svg?height=200&width=300",
+//     tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+//   },
+//   {
+//     id: 2,
+//     title: "Task Management App",
+//     description: "Collaborative project management tool with real-time updates",
+//     image: "/placeholder.svg?height=200&width=300",
+//     tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind"],
+//   },
+//   {
+//     id: 3,
+//     title: "AI Chat Assistant",
+//     description:
+//       "Intelligent chatbot with natural language processing capabilities",
+//     image: "/placeholder.svg?height=200&width=300",
+//     tech: ["Python", "OpenAI", "FastAPI", "React"],
+//   },
+//   {
+//     id: 4,
+//     title: "Analytics Dashboard",
+//     description:
+//       "Real-time data visualization and business intelligence platform",
+//     image: "/placeholder.svg?height=200&width=300",
+//     tech: ["Vue.js", "D3.js", "Express", "Redis"],
+//   },
+// ];
 
 export default function HomePage() {
   return (
@@ -156,7 +157,7 @@ export default function HomePage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {featuredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 50 }}
