@@ -5,39 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects.json";
 
-// const featuredProjects = [
-//   {
-//     id: 1,
-//     title: "E-Commerce Platform",
-//     description:
-//       "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-//     image: "/placeholder.svg?height=200&width=300",
-//     tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-//   },
-//   {
-//     id: 2,
-//     title: "Task Management App",
-//     description: "Collaborative project management tool with real-time updates",
-//     image: "/placeholder.svg?height=200&width=300",
-//     tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind"],
-//   },
-//   {
-//     id: 3,
-//     title: "AI Chat Assistant",
-//     description:
-//       "Intelligent chatbot with natural language processing capabilities",
-//     image: "/placeholder.svg?height=200&width=300",
-//     tech: ["Python", "OpenAI", "FastAPI", "React"],
-//   },
-//   {
-//     id: 4,
-//     title: "Analytics Dashboard",
-//     description:
-//       "Real-time data visualization and business intelligence platform",
-//     image: "/placeholder.svg?height=200&width=300",
-//     tech: ["Vue.js", "D3.js", "Express", "Redis"],
-//   },
-// ];
 
 export default function HomePage() {
   return (
@@ -58,7 +25,8 @@ export default function HomePage() {
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
                 Full-Stack Developer passionate about building modern, scalable
                 web applications and agentic AI solutions that solve real-world
-                problems.
+                problems. Currently, I am an permanent resident of Australia who
+                is looking for a full-time job as a junior software engineer.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/projects" className="btn-primary">
@@ -97,7 +65,7 @@ export default function HomePage() {
                   </svg>
                 </a>
                 <a
-                  href="hhttps://th.linkedin.com/in/piyawong-mahattanasawat-2b63161b5"
+                  href="https://th.linkedin.com/in/piyawong-mahattanasawat-2b63161b5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
