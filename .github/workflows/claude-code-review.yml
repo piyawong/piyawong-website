@@ -43,14 +43,31 @@ jobs:
 
           # Direct prompt for automated review (no @claude mention needed)
           direct_prompt: |
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+            Please review this pull request with focus on the following areas:
             
-            Be constructive and helpful in your feedback.
+            ## SOLID Principles Compliance
+            - **Single Responsibility**: Each component/module should have one clear purpose
+            - **Open/Closed**: Code should be extensible without modification
+            - **Liskov Substitution**: Components should be interchangeable with their abstractions
+            - **Interface Segregation**: Avoid forcing dependencies on unused interfaces
+            - **Dependency Inversion**: Depend on abstractions, not concrete implementations
+            
+            ## Next.js Best Practices
+            - **Performance**: Code splitting, image optimization, proper use of SSR/SSG/ISR
+            - **Data Fetching**: Server-side fetching preference, proper caching strategies
+            - **Routing**: Proper use of app directory, middleware, error handling
+            - **React Patterns**: Server Components usage, state management, component composition
+            - **SEO & Accessibility**: Semantic HTML, meta tags, ARIA labels, keyboard navigation
+            
+            ## General Code Quality
+            - **Security**: Input validation, environment variables, API protection
+            - **Type Safety**: Proper TypeScript usage and type definitions
+            - **Error Handling**: Comprehensive error boundaries and user feedback
+            - **Testing**: Adequate test coverage for critical paths
+            - **Code Organization**: Clear file structure and naming conventions
+            
+            Please provide specific, actionable feedback with code examples where applicable.
+            Be constructive and educational, especially for SOLID principle violations.
 
           # Optional: Use sticky comments to make Claude reuse the same comment on subsequent pushes to the same PR
           # use_sticky_comment: true
