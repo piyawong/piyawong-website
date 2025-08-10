@@ -40,6 +40,9 @@ import projects from "@/data/projects.json";
 // ];
 
 export default function HomePage() {
+  // test to see if the env variable is working
+  // #TODO: remove this after testing
+  console.log(process.env.SENDGRID_API_KEY);
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -58,7 +61,8 @@ export default function HomePage() {
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
                 Full-Stack Developer passionate about building modern, scalable
                 web applications and agentic AI solutions that solve real-world
-                problems.
+                problems. Currently, I am an permanent resident of Australia who
+                is looking for a full-time job as a junior software engineer.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/projects" className="btn-primary">
