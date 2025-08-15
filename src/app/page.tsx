@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects.json";
 
-
 export default function HomePage() {
   return (
     <div className="pt-16">
@@ -132,6 +131,9 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                onClick={() => {
+                  window.open(project.demo, "_blank");
+                }}
               >
                 <div className="card card-hover h-full">
                   <div className="overflow-hidden">
