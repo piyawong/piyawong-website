@@ -27,8 +27,12 @@ export default function RootLayout({
         {widgetURL && (
           <script
             src={widgetURL}
-            data-primary-color="#3b82f6"
             data-position="bottom-right"
+            // data-primary-color="#3b82f6"
+            data-primary-color="#155dfc"
+            data-secondary-color="#3b82f6"
+            data-background-color="#ffffff"
+            data-text-color="#ffffff"
             data-greeting="Hi, I'm KnowMe AI. Ask me anything!"
           ></script>
         )}
