@@ -25,6 +25,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Clean old images in ECR (delete all)
+        run: |
+          set -e
+          aws ecr list-images --repository-name $ECR_REPOSITORY --query 'imageIds[*]' --output json > image_ids.json
+          if [ "$(cat image_ids.json | tr -d '[:space:]')" != "[]" ]; then
+            aws ecr batch-delete-image --repository-name $ECR_REPOSITORY --image-ids file://image_ids.json || true
+          fi
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
