@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 import Navigation from "./components/navigation";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const widgetURL = process.env.NEXT_PUBLIC_WIDGET_URL;
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        {widgetURL && (
+          <script
+            src={widgetURL}
+            data-primary-color="#3b82f6"
+            data-position="bottom-right"
+            data-greeting="Hi, I'm KnowMe AI. Ask me anything!"
+          ></script>
+        )}
+
         <ThemeProvider>
           <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
             <Navigation />
