@@ -20,7 +20,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const widgetURL = process.env.NEXT_PUBLIC_WIDGET_URL;
+  const widgetURL =
+    process.env.NEXT_PUBLIC_WIDGET_URL || "http://localhost:3100/embed.js";
   console.log("widgetURL", process.env.NEXT_PUBLIC_WIDGET_URL);
   return (
     <html lang="en" suppressHydrationWarning>
@@ -34,7 +35,7 @@ export default function RootLayout({
             data-secondary-color="#3b82f6"
             data-background-color="#ffffff"
             data-text-color="#ffffff"
-            data-greeting="Hi, I'm KnowMe AI. Ask me anything!"
+            data-greeting="Hi, I'm KnowMe AI. Ask me anything about Piyawong!"
           ></script>
         )}
 
