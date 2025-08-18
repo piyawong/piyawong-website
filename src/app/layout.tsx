@@ -20,8 +20,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const widgetURL =
-    process.env.NEXT_PUBLIC_WIDGET_URL || "http://localhost:3100/embed.js";
+  const widgetURL = "http://localhost:3100/embed.js";
   console.log("widgetURL", process.env.NEXT_PUBLIC_WIDGET_URL);
   return (
     <html lang="en" suppressHydrationWarning>

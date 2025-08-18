@@ -19,9 +19,7 @@ export default function HomePage() {
             >
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
                 Hi, I'm{" "}
-                <span className="gradient-text">
-                  Piyawong Mahattanasawat test
-                </span>
+                <span className="gradient-text">Piyawong Mahattanasawat</span>
               </h1>
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
                 Full-Stack Developer passionate about building modern, scalable
