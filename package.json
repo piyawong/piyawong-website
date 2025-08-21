@@ -43,6 +43,7 @@
     "@types/nodemailer": "^6.4.17",
     "antd": "latest",
     "autoprefixer": "^10.4.20",
+    "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -63,6 +64,7 @@
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
     "resend": "^4.7.0",
+    "rough-notation": "^0.5.1",
     "shadcn": "latest",
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.6.0",
@@ -72,6 +74,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",

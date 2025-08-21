@@ -11,7 +11,8 @@ import { DotPattern } from "@/components/ui/dot-pattern";
 import { Ripple } from "@/components/ui/ripple";
 import { MagicCard } from "@/components/ui/magic-card";
 import { cn } from "@/lib/utils";
-import { Safari } from "@/components/ui/safari";
+
+import ProjectCard from "@/components/project-card";
 
 export default function HomePage() {
   return (
@@ -40,12 +41,12 @@ export default function HomePage() {
               </h1>
               <div className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
                 <TypingAnimation
-                  text="Full-Stack Developer passionate about building modern, scalable web applications and agentic AI solutions that solve real-world problems."
+                  text="Full-Stack Developer building modern web apps and AI solutions for real-world problems."
                   duration={50}
                 />
                 <p className="mt-4">
-                  Currently, I am a permanent resident of Australia who is
-                  looking for a full-time job as a junior software engineer.
+                  Currently, I am a "permanent resident of Australia" who is
+                  "looking for a full-time Software Developer job" .
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -160,52 +161,9 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <MagicCard
-                  className="h-full"
-                  onClick={() => {
-                    window.open(project.demo, "_blank");
-                  }}
-                >
-                  <div className="overflow-hidden rounded-lg mb-4">
-                    <Safari
-                      className="size-full"
-                      imageSrc={project.image}
-                      url={project.demo}
-                    />
-                    {/* <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-                    /> */}
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span key={tech} className="tech-tag">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </MagicCard>
-              </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(0, 4).map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
 

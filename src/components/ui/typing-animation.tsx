@@ -7,12 +7,14 @@ interface TypingAnimationProps {
   text: string;
   duration?: number;
   className?: string;
+  onFinish?: () => void;
 }
 
 export function TypingAnimation({
   text,
   duration = 200,
   className,
+  onFinish,
 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState("");
   const [i, setI] = useState(0);
@@ -24,6 +26,7 @@ export function TypingAnimation({
         setI(i + 1);
       } else {
         clearInterval(typingEffect);
+        onFinish?.();
       }
     }, duration);
 

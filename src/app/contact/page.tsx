@@ -4,6 +4,9 @@ import type React from "react";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { InteractiveHoverButton } from "@/components/ui/interaction-hover-button";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { Particles } from "@/components/ui/particles";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -149,7 +152,8 @@ export default function ContactPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="section-padding py-20">
+      <section className="section-padding py-20 relative overflow-hidden">
+        <Particles className="absolute inset-0" quantity={100} />
         <div className="container-max">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -180,13 +184,16 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="card p-8">
-                <h2 className="text-2xl font-bold mb-6">Send me a message</h2>
+              <div className="card p-8 relative">
+                <BorderBeam duration={8} size={100} />
+                <h2 className="text-2xl font-bold mb-6 ">Send me a message</h2>
+
                 {submitMessage && (
                   <div className="mb-4 p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg">
                     {submitMessage}
                   </div>
                 )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="form-label">
@@ -252,10 +259,10 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button
+                  <InteractiveHoverButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-primary w-full justify-center"
+                    className="btn-primary w-full justify-center text-black dark:text-white"
                   >
                     {isSubmitting ? (
                       <svg
@@ -278,22 +285,10 @@ export default function ContactPage() {
                         />
                       </svg>
                     ) : (
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                        />
-                      </svg>
+                      <></>
                     )}
                     {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
+                  </InteractiveHoverButton>
                 </form>
               </div>
             </motion.div>
