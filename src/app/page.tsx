@@ -4,13 +4,28 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import projects from "@/data/projects.json";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { TypingAnimation } from "@/components/ui/typing-animation";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { DotPattern } from "@/components/ui/dot-pattern";
+import { Ripple } from "@/components/ui/ripple";
+import { MagicCard } from "@/components/ui/magic-card";
+import { cn } from "@/lib/utils";
+import { Safari } from "@/components/ui/safari";
 
 export default function HomePage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="section-padding py-20 lg:py-32">
-        <div className="container-max">
+      <section className="relative section-padding py-20 lg:py-32 overflow-hidden">
+        {/* Background Pattern */}
+        <DotPattern
+          className={cn(
+            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] opacity-30"
+          )}
+        />
+
+        <div className="container-max relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -19,30 +34,42 @@ export default function HomePage() {
             >
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
                 Hi, I'm{" "}
-                <span className="gradient-text">Piyawong Mahattanasawat</span>
+                <AnimatedGradientText className="text-4xl lg:text-6xl font-bold">
+                  Piyawong Mahattanasawat
+                </AnimatedGradientText>
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-                Full-Stack Developer passionate about building modern, scalable
-                web applications and agentic AI solutions that solve real-world
-                problems. Currently, I am an permanent resident of Australia who
-                is looking for a full-time job as a junior software engineer.
-              </p>
+              <div className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+                <TypingAnimation
+                  text="Full-Stack Developer passionate about building modern, scalable web applications and agentic AI solutions that solve real-world problems."
+                  duration={50}
+                />
+                <p className="mt-4">
+                  Currently, I am a permanent resident of Australia who is
+                  looking for a full-time job as a junior software engineer.
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/projects" className="btn-primary">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <Link href="/projects">
+                  <ShimmerButton
+                    className="group relative overflow-hidden bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
+                    background="linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)"
+                    shimmerColor="#ffffff"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                  View My Work
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                    View My Work
+                  </ShimmerButton>
                 </Link>
                 <Link href="/contact" className="btn-secondary">
                   Get In Touch
@@ -86,8 +113,18 @@ export default function HomePage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center"
             >
-              <div className="relative">
-                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1">
+              <div className="relative ">
+                {/* Ripple Effect Behind Profile */}
+                <div className="absolute inset-0 -z-10 rounded-full w-96 h-96 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <Ripple
+                    mainCircleSize={120}
+                    numCircles={6}
+                    mainCircleOpacity={0.1}
+                    className="rounded-full"
+                  />
+                </div>
+
+                <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1 relative z-10">
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 p-4">
                     <Image
                       src="/profile.png?height=300&width=300"
@@ -131,25 +168,32 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                onClick={() => {
-                  window.open(project.demo, "_blank");
-                }}
               >
-                <div className="card card-hover h-full">
-                  <div className="overflow-hidden">
-                    <Image
+                <MagicCard
+                  className="h-full"
+                  onClick={() => {
+                    window.open(project.demo, "_blank");
+                  }}
+                >
+                  <div className="overflow-hidden rounded-lg mb-4">
+                    <Safari
+                      className="size-full"
+                      imageSrc={project.image}
+                      url={project.demo}
+                    />
+                    {/* <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       width={300}
                       height={200}
                       className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-                    />
+                    /> */}
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold mb-2">
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-gray-600 dark:text-gray-300">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -160,7 +204,7 @@ export default function HomePage() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </MagicCard>
               </motion.div>
             ))}
           </div>
@@ -172,21 +216,27 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <Link href="/projects" className="btn-primary">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <Link href="/projects">
+              <ShimmerButton
+                className="group relative overflow-hidden bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
+                background="linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)"
+                shimmerColor="#ffffff"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-              View All Projects
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+                View All Projects
+              </ShimmerButton>
             </Link>
           </motion.div>
         </div>
