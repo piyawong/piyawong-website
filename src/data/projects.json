@@ -4,7 +4,7 @@
     "title": "Piyawong's Website",
     "description": "My personal website built with Next.js, Tailwind CSS, and Framer Motion",
     "longDescription": "A personal website built with Next.js, Tailwind CSS, and Framer Motion. It is a responsive website that is fully optimized for performance.",
-    "image": "/piyawong-website.png",
+    "image": "/piyawong-website-dark.png",
     "tech": ["React", "Node.js", "Next.js", "Tailwind CSS", "Framer Motion"],
     "github": "https://github.com/piyawong/piyawong-website",
     "demo": "http://piyawong.com",
