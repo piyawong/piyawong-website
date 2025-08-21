@@ -1,20 +1,28 @@
 [
   {
-    "id": 1,
-    "title": "Piyawong's Website",
-    "description": "My personal website built with Next.js, Tailwind CSS, and Framer Motion",
-    "longDescription": "A personal website built with Next.js, Tailwind CSS, and Framer Motion. It is a responsive website that is fully optimized for performance.",
+    "id": "piyawong-website",
+    "title": "Piyawong's Digital Portfolio",
+    "description": "An elegant personal portfolio showcasing modern web development craftsmanship",
+    "longDescription": "A meticulously crafted digital portfolio that represents the pinnacle of modern web development. Built with Next.js 15 for blazing-fast performance, enhanced with sophisticated animations through Framer Motion, and styled with Tailwind CSS for pixel-perfect responsive design. This platform serves as both a showcase of technical expertise and a testament to thoughtful user experience design, featuring seamless navigation, optimized performance metrics, and accessibility-first architecture.",
     "image": "/piyawong-website-dark.png",
-    "tech": ["React", "Node.js", "Next.js", "Tailwind CSS", "Framer Motion"],
+    "tech": [
+      "React",
+      "Node.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "TypeScript",
+      "Magic UI"
+    ],
     "github": "https://github.com/piyawong/piyawong-website",
     "demo": "http://piyawong.com",
     "category": "Full Stack"
   },
   {
-    "id": 2,
-    "title": "Know me AI",
-    "description": "AI chatbot that can help you know me better",
-    "longDescription": "A chatbot that can help you know me better. It is built with Next.js, Tailwind CSS, and Framer Motion. It is a responsive website that is fully optimized for performance.",
+    "id": "knowme-ai",
+    "title": "KnowMe AI",
+    "description": "Intelligent conversational AI that unveils personality through meaningful dialogue",
+    "longDescription": "An innovative AI-powered conversational experience designed to create authentic connections through intelligent dialogue. Leveraging advanced language models from OpenAI and sophisticated prompt engineering via LangChain, this application transforms traditional introductions into engaging, personalized conversations. Built on a robust Next.js foundation with TypeScript for type safety, the platform features dynamic interactions, contextual memory, and adaptive responses that evolve with each conversation, creating a unique window into personality and professional expertise.",
     "image": "/knowme-ai.png",
     "tech": [
       "Next.js",
