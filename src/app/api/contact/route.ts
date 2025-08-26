@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const msg = {
-      to: "piyawongmahat@gmail.com", // Your email
+      to: "piyawong.mah@gmail.com", // Your email
       from: "piyawongmahat@hotmail.com", // Verified sender
       subject: `Contact Form: ${subject}`,
       text: `

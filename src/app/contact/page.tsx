@@ -75,8 +75,8 @@ export default function ContactPage() {
         </svg>
       ),
       title: "Email",
-      content: "piyawongmahat@gmail.com",
-      link: "mailto:piyawongmahat@gmail.com",
+      content: "piyawong.mah@gmail.com",
+      link: "mailto:piyawong.mah@gmail.com",
     },
     {
       icon: (
