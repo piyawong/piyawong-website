@@ -34,7 +34,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-                Hi, I'm{" "}
+                Hi,test I'm{" "}
                 <AnimatedGradientText className="text-4xl lg:text-6xl font-bold">
                   Piyawong Mahattanasawat
                 </AnimatedGradientText>

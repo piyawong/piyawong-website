@@ -2,6 +2,12 @@ import projects from "@/data/projects.json";
 import { Safari } from "@/components/ui/safari";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id,
+  }))
+}
+
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const project = projects.find((project) => project.id === id);

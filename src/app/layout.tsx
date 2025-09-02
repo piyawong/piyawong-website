@@ -19,8 +19,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const widgetURL = "http://207.148.121.83:3100/embed.js";
-  console.log("widgetURL", process.env.NEXT_PUBLIC_WIDGET_URL);
+  const widgetURL = 'https://dev.piyawong.com/knowme-ai-widget/embed.js'
+ 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
