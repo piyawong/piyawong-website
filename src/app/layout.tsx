@@ -20,6 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const widgetURL = 'https://dev.piyawong.com/knowme-ai-widget/embed.js'
+  console.log("widgetURL", widgetURL);
  
   return (
     <html lang="en" suppressHydrationWarning>
